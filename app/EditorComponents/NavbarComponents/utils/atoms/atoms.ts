@@ -1,8 +1,8 @@
 import { atom } from "jotai";
-import { statusBadge } from "../constants/statusBadge";
+import { statusBadges } from "../constants/statusBadge";
 
 // File Name atom
 export const fileNameAtom = atom("Untitled");
 
 // Status atom
-export const statusAtom = atom(statusBadge[0]);
+export const statusAtom = atom(statusBadges[0]);

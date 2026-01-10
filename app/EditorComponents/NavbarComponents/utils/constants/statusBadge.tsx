@@ -1,7 +1,7 @@
 import { CircleCheck, FileSearch, NotebookPen } from "lucide-react";
 import { StatusBadge } from "../interfaces/statusBadge";
 
-export const statusBadge: StatusBadge[] = [
+export const statusBadges: StatusBadge[] = [
     {
         bgColor: "bg-orange-400/20",
         color: "text-orange-400",
