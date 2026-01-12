@@ -1,5 +1,6 @@
 
 import FileName from "./FileName";
+import { ModeToggle } from "./ModeToggle";
 import StatusBadge from "./StatusBadge";
 import StatusSelector from "./StatusSelector";
 
@@ -12,6 +13,7 @@ export default function NavBar(){
                 <StatusBadge />
                 <StatusSelector />
             </div>
+            <ModeToggle />
             
 
         </div>
