@@ -1,17 +1,5 @@
-'use client'
+import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor'
 
-import { useEditor, EditorContent } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
-
-const Tiptap = () => {
-  const editor = useEditor({
-    extensions: [StarterKit],
-    content: '<p>Hello World! 🌎️</p>',
-    // Don't render immediately on the server to avoid SSR issues
-    immediatelyRender: false,
-  })
-
-  return <EditorContent editor={editor} />
+export default function App() {
+  return <SimpleEditor />
 }
-
-export default Tiptap
