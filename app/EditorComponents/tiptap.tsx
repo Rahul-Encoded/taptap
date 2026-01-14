@@ -14,8 +14,8 @@ import HeaderFooterPopUp from './HeaderPopUp';
 export default function TipTapEditor(){
   const [popUp, setPopUp] = useState(false);
   const [type, setType] = useState<"header" | "footer">("header");
-  const header = useAtom(headerAtom);
-  const footer = useAtom(footerAtom);
+  const [header] = useAtom(headerAtom);
+  const [footer] = useAtom(footerAtom);
 
 
 const editor = useEditor({
