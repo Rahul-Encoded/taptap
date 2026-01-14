@@ -6,8 +6,9 @@ import {
   PaginationPlus,
   PAGE_SIZES
 } from 'tiptap-pagination-plus'
-import { footerAtom, headerAtom } from './utils/atoms/atoms';
+import { footerAtom, headerAtom, pageSizeAtom } from './utils/atoms/atoms';
 import { useState } from 'react';
+import { useAtomValue } from 'jotai';
 import HeaderFooterPopUp from './HeaderPopUp';
 import TipTapToolBar from './TipTapToolBar';
 
@@ -22,19 +23,22 @@ import Superscript from '@tiptap/extension-superscript'
 import Blockquote from '@tiptap/extension-blockquote'
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import { all, createLowlight } from 'lowlight'
+import { TableKitPlus } from 'tiptap-table-plus';
 
 const lowlight = createLowlight(all)
 
 export default function TipTapEditor(){
   const [popUp, setPopUp] = useState(false);
   const [type, setType] = useState<"header" | "footer">("header");
-  const [header] = useAtom(headerAtom);
-  const [footer] = useAtom(footerAtom);
+  const [header, setHeader] = useAtom(headerAtom);
+  const [footer, setFooter] = useAtom(footerAtom);
+  const pageSize = useAtomValue(pageSizeAtom);
+  
 
   const editor = useEditor({
-    onCreate: () => {
-      editor?.chain().focus()
-        .updatePageSize(PAGE_SIZES.A4)
+    onCreate: ({ editor }) => {
+      editor.chain().focus()
+        .updatePageSize(PAGE_SIZES[pageSize])
         .updateMargins({ top: 30, bottom: 30, left: 60, right: 60 })
         .updateHeaderContent('Document Title', 'Page {page}')
         .updateFooterContent('Confidential', 'Page {page} of {total}')
@@ -57,9 +61,8 @@ export default function TipTapEditor(){
       CodeBlockLowlight.configure({
         lowlight,
       }),
+       TableKitPlus,
       PaginationPlus.configure({
-        pageHeight: 800,        // Height of each page in pixels
-        pageWidth: 789,         // Width of each page in pixels
         pageGap: 50,            // Gap between pages in pixels
         pageGapBorderSize: 1,   // Border size for page gaps
         pageGapBorderColor: "#e5e5e5", // Border color for page gaps
@@ -80,11 +83,13 @@ export default function TipTapEditor(){
           console.log(`Header clicked on page ${pageNumber}`)
           setPopUp(true)
           setType("header")
+          setHeader(`${header}`)
         },
         onFooterClick: ({ event, pageNumber }: { event: React.MouseEvent; pageNumber: number }) => {
           console.log(`Footer clicked on page ${pageNumber}`)
           setPopUp(true)
           setType("footer")
+          setFooter(`${footer}`)
         },
       }),
     ],
@@ -105,10 +110,10 @@ export default function TipTapEditor(){
             id="editor"
           />
         </div>
+        <div className='inset-50 fixed z-50'>
+          {popUp && <HeaderFooterPopUp type={type} onBack={() => setPopUp(false)} />}
+        </div>
       </EditorContext.Provider>
-      <div className='inset-50 fixed z-50'>
-      {popUp && <HeaderFooterPopUp type={type} onBack={() => setPopUp(false)} />}
-      </div>
     </div>
   );
 }
