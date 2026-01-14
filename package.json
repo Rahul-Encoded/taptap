@@ -44,7 +44,8 @@
     "react-dom": "19.2.3",
     "react-hotkeys-hook": "^5.2.1",
     "tailwind-merge": "^3.4.0",
-    "tiptap-pagination-plus": "^3.0.5"
+    "tiptap-pagination-plus": "^3.0.5",
+    "tiptap-unique-id": "^3.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

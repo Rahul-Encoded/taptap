@@ -116,6 +116,9 @@ importers:
       tiptap-pagination-plus:
         specifier: ^3.0.5
         version: 3.0.5(@tiptap/core@3.15.3(@tiptap/pm@3.15.3))(@tiptap/pm@3.15.3)
+      tiptap-unique-id:
+        specifier: ^3.4.1
+        version: 3.4.1(@tiptap/core@3.15.3(@tiptap/pm@3.15.3))(@tiptap/pm@3.15.3)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
@@ -2744,6 +2747,12 @@ packages:
     peerDependencies:
       '@tiptap/core': ^2.0.0 || ^3.0.0
       '@tiptap/pm': ^2.0.0 || ^3.0.0
+
+  tiptap-unique-id@3.4.1:
+    resolution: {integrity: sha512-0Qk6f8IWicHrX1e9gC3Nd9mHkIj/IAninF+dyN9JN+cO7CqMlSwrQ9sKCruft2fPtwbpS8sHBECyldMhkKBKXQ==}
+    peerDependencies:
+      '@tiptap/core': ^3.4.1
+      '@tiptap/pm': ^3.4.1
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
@@ -5658,6 +5667,11 @@ snapshots:
       picomatch: 4.0.3
 
   tiptap-pagination-plus@3.0.5(@tiptap/core@3.15.3(@tiptap/pm@3.15.3))(@tiptap/pm@3.15.3):
+    dependencies:
+      '@tiptap/core': 3.15.3(@tiptap/pm@3.15.3)
+      '@tiptap/pm': 3.15.3
+
+  tiptap-unique-id@3.4.1(@tiptap/core@3.15.3(@tiptap/pm@3.15.3))(@tiptap/pm@3.15.3):
     dependencies:
       '@tiptap/core': 3.15.3(@tiptap/pm@3.15.3)
       '@tiptap/pm': 3.15.3
