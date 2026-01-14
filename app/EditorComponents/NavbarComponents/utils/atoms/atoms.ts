@@ -12,3 +12,6 @@ export const headerAtom = atom("");
 
 //Footer atom
 export const footerAtom = atom("");
+
+//PageSize atom
+export const pageSizeAtom = atom("A4");
