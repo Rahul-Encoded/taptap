@@ -2,8 +2,6 @@ import { Toolbar, ToolbarGroup, ToolbarSeparator } from '@/components/tiptap-ui-
 import { Button } from '@/components/tiptap-ui-primitive/button'
 
 import { Spacer } from '@/components/tiptap-ui-primitive/spacer'
-import { BoldIcon } from '@/components/tiptap-icons/bold-icon'
-import { ItalicIcon } from '@/components/tiptap-icons/italic-icon'
 import { ColorHighlightButton } from '@/components/tiptap-ui/color-highlight-button'
 import { HeadingDropdownMenu } from '@/components/tiptap-ui/heading-dropdown-menu'
 import { LinkPopover } from '@/components/tiptap-ui/link-popover'
@@ -47,9 +45,9 @@ export default function TipTapToolBar() {
       
 
       <Spacer />
+      <ToolbarGroup>
         <PrintButton/>
       <PageSizeDropDown/>
-      <ToolbarGroup>
         <Button data-style="primary">Save</Button>
       </ToolbarGroup>
     </Toolbar>
