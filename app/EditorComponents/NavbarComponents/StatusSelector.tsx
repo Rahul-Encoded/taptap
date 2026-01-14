@@ -8,11 +8,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { SquarePen } from "lucide-react"
-import { statusBadges } from "./utils/constants/statusBadge"
+import { statusBadges } from "../utils/constants/statusBadge"
 import StatusDropdownrow from "./StatusDropdownrow"
-import { StatusBadge as StatusBadgeInterface } from "./utils/interfaces/statusBadge"
+import { StatusBadge as StatusBadgeInterface } from "../utils/interfaces/statusBadge"
 import { useAtom } from "jotai"
-import { statusAtom } from "./utils/atoms/atoms"
+import { statusAtom } from "../utils/atoms/atoms"
 import { cn } from "@/lib/utils"
 
 export default function StatusSelector(){

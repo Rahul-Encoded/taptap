@@ -1,7 +1,7 @@
 "use client";
 
 import { useAtom } from "jotai";
-import { footerAtom, headerAtom } from "./NavbarComponents/utils/atoms/atoms";
+import { footerAtom, headerAtom } from "./utils/atoms/atoms";
 import { X } from "lucide-react";
 
 export default function HeaderFooterPopUp({type, onBack}: {type: "header" | "footer"; onBack: () => void}){

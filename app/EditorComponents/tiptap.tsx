@@ -6,7 +6,7 @@ import {
   PaginationPlus,
   PAGE_SIZES
 } from 'tiptap-pagination-plus'
-import { footerAtom, headerAtom } from './NavbarComponents/utils/atoms/atoms';
+import { footerAtom, headerAtom } from './utils/atoms/atoms';
 import { useState } from 'react';
 import HeaderFooterPopUp from './HeaderPopUp';
 import TipTapToolBar from './TipTapToolBar';

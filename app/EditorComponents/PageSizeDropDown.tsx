@@ -1,6 +1,6 @@
 import { DropdownMenu, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAtom } from "jotai";
-import { pageSizeAtom } from "./NavbarComponents/utils/atoms/atoms";
+import { pageSizeAtom } from "./utils/atoms/atoms";
 import { DropdownMenuContent } from "@radix-ui/react-dropdown-menu";
 
 import { ChevronDownIcon } from "lucide-react";

@@ -2,7 +2,7 @@
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { useAtom } from "jotai";
-import { statusAtom } from "./utils/atoms/atoms";
+import { statusAtom } from "../utils/atoms/atoms";
 
 export default function StatusBadge(){
     const [status] = useAtom(statusAtom)

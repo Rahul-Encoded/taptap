@@ -1,6 +1,6 @@
 "use client";
 import { useAtom } from "jotai";
-import { fileNameAtom } from "./utils/atoms/atoms";
+import { fileNameAtom } from "../utils/atoms/atoms";
 
 export default function FileName(){
     const [fileName, setFileName] = useAtom(fileNameAtom);
