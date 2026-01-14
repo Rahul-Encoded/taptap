@@ -13,6 +13,7 @@ import PageSizeDropDown from './PageSizeDropDown'
 import { BlockquoteButton } from '@/components/tiptap-ui/blockquote-button'
 import { CodeBlockButton } from '@/components/tiptap-ui/code-block-button'
 import PrintButton from './PrintButton'
+import { TableDropdownMenu } from '@/components/tiptap-ui/table-dropdown-menu/table-dropdown-menu'
 
 
 export default function TipTapToolBar() {
@@ -42,6 +43,10 @@ export default function TipTapToolBar() {
       </ToolbarGroup>
 
       <ToolbarSeparator />
+
+      <ToolbarGroup>
+         <TableDropdownMenu />
+      </ToolbarGroup>
       
 
       <Spacer />
