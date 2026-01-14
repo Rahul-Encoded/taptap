@@ -13,5 +13,6 @@ export const headerAtom = atom("");
 //Footer atom
 export const footerAtom = atom("");
 
-//PageSize atom
-export const pageSizeAtom = atom("A4");
+// Page Size types and atom
+export type PageSizeKey = "A4" | "A3" | "A5" | "LETTER" | "LEGAL" | "TABLOID";
+export const pageSizeAtom = atom<PageSizeKey>("A4");
