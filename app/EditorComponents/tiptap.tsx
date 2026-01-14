@@ -9,6 +9,7 @@ import {
 import { footerAtom, headerAtom } from './NavbarComponents/utils/atoms/atoms';
 import { useState } from 'react';
 import HeaderFooterPopUp from './HeaderPopUp';
+import TipTapToolBar from './TipTapToolBar';
 
 
 export default function TipTapEditor(){
@@ -65,6 +66,7 @@ const editor = useEditor({
 
  return (
     <div className="flex flex-col gap-2 w-full">
+      <TipTapToolBar />
       <div className="overflow-x-auto m-auto" id="printableArea">
         <EditorContent
           editor={editor}
