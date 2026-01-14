@@ -1,0 +1,123 @@
+/* Pagination CSS Variables */
+:root {
+  --doc-height: 1123px;
+  --page-margin: 96px;
+  --page-gap: 76px;
+  --page-padding: 96px;
+}
+
+/* A4 Page Styling */
+.paginated-editor {
+  min-height: var(--doc-height);
+  background-color: white;
+  width: 8.27in; /* A4 width */
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  word-break: break-word;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Editor container */
+.paginated-editor .ProseMirror {
+  padding: 0 var(--page-padding);
+  outline: none !important;
+  min-height: var(--doc-height);
+}
+
+.paginated-editor .ProseMirror:focus {
+  outline: none !important;
+}
+
+/* First element margin (top page margin) */
+.paginated-editor .ProseMirror > *:first-child {
+  margin-top: var(--page-margin);
+}
+
+/* Spacer div (invisible page break pusher) */
+.spacer {
+  /* Transparent by default - uncomment for debugging */
+  /* background-color: rgba(255, 255, 0, 0.3); */
+}
+
+/* Node that has been pushed by a spacer */
+.page-break-node {
+  /* Can add visual indicator if needed */
+  /* outline: 1px dashed rgba(0, 100, 255, 0.3); */
+}
+
+/* Page gap overlay styling */
+.page-gap-overlay {
+  position: absolute;
+  width: 100%;
+  min-width: 8.27in;
+  background: #f1f3f5;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Editor wrapper for page gaps */
+.editor-page-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #f8f9fa;
+}
+
+/* Typography - match Word defaults */
+.paginated-editor .ProseMirror {
+  font-family: 'Times New Roman', serif;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+/* Headings */
+.paginated-editor h1,
+.paginated-editor h2,
+.paginated-editor h3,
+.paginated-editor h4,
+.paginated-editor h5,
+.paginated-editor h6 {
+  line-height: 1.2;
+}
+
+/* Lists */
+.paginated-editor ol,
+.paginated-editor ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.paginated-editor li {
+  margin: 2px 0;
+}
+
+/* Paragraphs */
+.paginated-editor p {
+  margin: 0 0 1em 0;
+}
+
+/* Print styles */
+@media print {
+  .page-gap-overlay {
+    display: none;
+  }
+  
+  .spacer {
+    display: none;
+  }
+  
+  .paginated-editor {
+    width: 100%;
+    min-height: auto;
+  }
+  
+  .paginated-editor .ProseMirror {
+    padding: 0;
+  }
+}
