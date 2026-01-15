@@ -39,7 +39,7 @@ export default function TipTapEditor(){
     onCreate: ({ editor }) => {
       editor.chain().focus()
         .updatePageSize(PAGE_SIZES[pageSize])
-        .updateMargins({ top: 30, bottom: 30, left: 60, right: 60 })
+        .updateMargins({ top: 96, bottom: 96, left: 96, right: 96 })
         .updateHeaderContent('Document Title', 'Page {page}')
         .updateFooterContent('Confidential', 'Page {page} of {total}')
         .run()
@@ -71,10 +71,10 @@ export default function TipTapEditor(){
         footerLeft: footer,         // Custom HTML content to display in the footer left side
         headerRight: "",        // Custom HTML content to display in the header right side
         headerLeft: header,         // Custom HTML content to display in the header left side
-        marginTop: 20,          // Top margin for pages
-        marginBottom: 20,       // Bottom margin for pages
-        marginLeft: 50,         // Left margin for pages
-        marginRight: 50,        // Right margin for pages
+        marginTop: 96,          // Top margin for pages
+        marginBottom: 96,       // Bottom margin for pages
+        marginLeft: 96,         // Left margin for pages
+        marginRight: 96,        // Right margin for pages
         contentMarginTop: 10,   // Top margin for content within pages
         contentMarginBottom: 10, // Bottom margin for content within pages
         
@@ -111,7 +111,7 @@ export default function TipTapEditor(){
           />
         </div>
         <div className='inset-50 fixed z-50'>
-          {popUp && <HeaderFooterPopUp type={type} onBack={() => setPopUp(false)} />}
+          {popUp && <HeaderFooterPopUp type={type} onBack={() => {setPopUp(false); editor.chain().focus().run(); }} />}
         </div>
       </EditorContext.Provider>
     </div>
