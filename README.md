@@ -59,13 +59,12 @@ The extension uses **ProseMirror decorations** to inject visual page indicators 
 
 ### Current Limitations
 
-| Area                    | Limitation                                                                                                                       |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **Paragraph Splitting** | Long paragraphs that exceed page height are split at word boundaries—they don't simply overflow to the next page as a whole unit |
-| **Table Handling**      | Tables crossing page boundaries may break awkwardly; individual cells aren't split                                               |
-| **Print Accuracy**      | While targeting print parity, actual browser print rendering may differ slightly due to CSS page media handling                  |
-| **Performance**         | Very large documents (100+ pages) may experience lag during recalculation                                                        |
-| **Headers/Footers**     | Currently basic—custom header/footer content requires manual configuration                                                       |
+| Area                | Limitation                                                                                                      |
+| ------------------- | --------------------------------------------------------------------------------------------------------------- |
+|                     |
+| **Print Accuracy**  | While targeting print parity, actual browser print rendering may differ slightly due to CSS page media handling |
+| **Performance**     | Very large documents (100+ pages) may experience lag during recalculation                                       |
+| **Headers/Footers** | Currently basic—custom header/footer content requires manual configuration                                      |
 
 ### Design Trade-offs
 
@@ -80,30 +79,13 @@ The extension uses **ProseMirror decorations** to inject visual page indicators 
 
 ## What I Would Improve With More Time
 
-### 1. Paragraph Splitting at Word Boundaries
+### 1. Print-Perfect Export
 
-Split long paragraphs when they exceed usable page height, finding natural break points at words rather than forcing entire paragraphs to new pages.
+Currently DOCX/PDF export that respects visual page breaks, ensuring what-you-see-is-what-you-get in exported documents but does not include Headers and Footers.
 
-### 2. Smarter Table Pagination
+### 2. Headers/Footers
 
-Split tables at row boundaries and handle cells that contain large amounts of content more gracefully.
-
-### 3. Orphan/Widow Control
-
-Prevent single lines at the top or bottom of pages (orphans and widows) by adjusting break points.
-
-### 4. Print-Perfect Export
-
-Implement DOCX/PDF export that respects visual page breaks, ensuring what-you-see-is-what-you-get in exported documents.
-
-### 5. Performance Optimization
-
-- **Incremental updates**: Only recalculate affected pages on content changes
-- **Virtualization**: For very long documents, only render visible pages plus a small buffer
-
-### 6. Page Number Overlays
-
-Show current page indicator as users scroll, and display page numbers in headers/footers.
+Currently basic—custom header/footer content requires manual configuration. I would like to add a feature that allows users to add custom header and footer content to their documents.
 
 ---
 
@@ -179,7 +161,7 @@ app/EditorComponents/pagination/
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js (App Router)
 - **Editor**: Tiptap
 - **Pagination**: `tiptap-pagination-plus` extension
 - **State Management**: Jotai atoms for page size/margin state
